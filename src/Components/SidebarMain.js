@@ -10,13 +10,20 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
-
+import MenuIcon from '@material-ui/icons/Menu';
+import { Avatar } from '@material-ui/core';
+import AssignmentIcon from '@material-ui/icons/Assignment';
+import { green, pink } from '@material-ui/core/colors';
 const useStyles = makeStyles({
   list: {
     width: 250,
   },
   fullList: {
     width: 'auto',
+  },
+  green: {
+    color: '#fff',
+    backgroundColor: green[500],
   },
 });
 
@@ -47,22 +54,36 @@ export default function TemporaryDrawer() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+        {['Classes', 'Attendance',].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List> 
+      <Divider />
+      <List>
+        {['ClassName1', 'ClassName2', 'ClassName3', 'ClassName4'].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon><Avatar className={classes.green}>
+  <AssignmentIcon />
+</Avatar></ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
         ))}
       </List>
       <Divider />
       <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
+        {['ClassName1', 'ClassName2', 'ClassName3', 'ClassName4'].map((text, index) => (
           <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemIcon><Avatar className={classes.green}>
+  <AssignmentIcon />
+</Avatar></ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
         ))}
       </List>
+     
     </div>
   );
 
@@ -70,7 +91,7 @@ export default function TemporaryDrawer() {
     <div>
       {['left', 'right', 'top', 'bottom'].map((anchor) => (
         <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+          <Button onClick={toggleDrawer(anchor, true)}><MenuIcon/></Button>
           <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
             {list(anchor)}
           </Drawer>

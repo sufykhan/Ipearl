@@ -5,6 +5,7 @@ const Homescreen = () => {
     return (
         <Paper>
             <Card/>
+            <Card/>
         </Paper>
     )
 }
