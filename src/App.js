@@ -1,6 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import Homescreen from "./Screens/Homescreen";
+import ClassScreen from "./Screens/ClassScreen";
 const App = () => {
   return (
     <>
@@ -9,7 +10,7 @@ const App = () => {
             <Homescreen />
           </Route>
           <Route path="/dummy" exact>
-            <Homescreen />
+            <ClassScreen />
           </Route>
 
     </>
