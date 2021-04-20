@@ -8,6 +8,9 @@ const App = () => {
           <Route path="/" exact>
             <Homescreen />
           </Route>
+          <Route path="/dummy" exact>
+            <Homescreen />
+          </Route>
 
     </>
   );
