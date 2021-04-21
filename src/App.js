@@ -6,10 +6,10 @@ const App = () => {
   return (
     <>
      
-          <Route path="/" exact>
+          <Route path="/dummy" exact>
             <Homescreen />
           </Route>
-          <Route path="/dummy" exact>
+          <Route path="/" exact>
             <ClassScreen />
           </Route>
 
