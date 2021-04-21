@@ -74,11 +74,9 @@ export default function TemporaryDrawer() {
       </List>
       <Divider />
       <List>
-        {['ClassName1', 'ClassName2', 'ClassName3', 'ClassName4'].map((text, index) => (
+        {['Settings', 'About'].map((text, index) => (
           <ListItem button key={text}>
-            <ListItemIcon><Avatar className={classes.green}>
-  <AssignmentIcon />
-</Avatar></ListItemIcon>
+           
             <ListItemText primary={text} />
           </ListItem>
         ))}
