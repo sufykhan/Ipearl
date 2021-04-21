@@ -12,6 +12,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import SideBar from "./SidebarMain";
 import MoreIcon from '@material-ui/icons/MoreVert';
+import {  Tab, Tabs } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -78,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   CustomColor:{
-    color:'black',
+    color:'#424243',
     background:'#fff',
   },
 }));
@@ -150,18 +151,27 @@ export default function PrimarySearchAppBar() {
     </Menu>
   );
 
+
+  const [value, setValue] = React.useState(2);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   return (
     <div className={classes.grow}>
       <AppBar position="static" className={classes.CustomColor}>
-        <Toolbar>
-          <IconButton
+        <Toolbar style={{padding:0}}>
+          {/* <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
+
+          <SideBar/>
           <Typography className={classes.title} variant="h6" noWrap>
             Course Name
           </Typography>
@@ -178,9 +188,20 @@ export default function PrimarySearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
+          <div>
+          <Tabs value={value}
+    indicatorColor="primary"
+    textColor="primary"
+    onChange={handleChange}
+    aria-label="disabled tabs example">
+          <Tab label="Stream"/>
+          <Tab label="Classroom"/>
+          <Tab label="People"/>
+          </Tabs>
+          </div>
+          
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-          <SideBar/>
             
             <IconButton
               edge="end"
@@ -189,8 +210,9 @@ export default function PrimarySearchAppBar() {
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
               color="inherit"
+              style={{marginRight:"5px",fontSize:"2rem"}}
             >
-              <AccountCircle />
+              <AccountCircle  style={{fontSize:"2rem"}}/>
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>
