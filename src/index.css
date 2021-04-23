@@ -5,3 +5,7 @@ main{
 .cursor{
   cursor: pointer;
 }
+.MuiTabs-flexContainer {
+  display: flex;
+  justify-content: center;
+}

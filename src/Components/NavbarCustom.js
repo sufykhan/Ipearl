@@ -12,7 +12,6 @@ import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import SideBar from "./SidebarMain";
 import MoreIcon from '@material-ui/icons/MoreVert';
-import {  Tab, Tabs } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -152,11 +151,7 @@ export default function PrimarySearchAppBar() {
   );
 
 
-  const [value, setValue] = React.useState(2);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+ 
 
   return (
     <div className={classes.grow}>
@@ -187,17 +182,6 @@ export default function PrimarySearchAppBar() {
               }}
               inputProps={{ 'aria-label': 'search' }}
             />
-          </div>
-          <div>
-          <Tabs value={value}
-    indicatorColor="primary"
-    textColor="primary"
-    onChange={handleChange}
-    aria-label="disabled tabs example">
-          <Tab label="Stream"/>
-          <Tab label="Classroom"/>
-          <Tab label="People"/>
-          </Tabs>
           </div>
           
           <div className={classes.grow} />
