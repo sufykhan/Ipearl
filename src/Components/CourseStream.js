@@ -1,5 +1,5 @@
-import { Container, Grid, makeStyles, Paper } from '@material-ui/core'
-import React from 'react'
+import { Container, Grid, makeStyles, Paper, Tab, Tabs } from '@material-ui/core'
+import React, { useState } from 'react'
 
 
 
@@ -20,9 +20,19 @@ const useStyles = makeStyles((theme) => ({
       margin:"1rem 1rem",
       height:"20vh"
     },
+    Tabs1:{
+        background:'#c2c2c2',
+    }
   }));
 
+
 const CourseStream = () => {
+    const [value, setValue] = useState(2);
+
+    const handleChange = (event, newValue) => {
+      setValue(newValue);
+    };
+
     const classes = useStyles();
     return (
         <Container>
@@ -35,6 +45,18 @@ const CourseStream = () => {
             </Grid>
 
             </Grid>
+            <div >
+          <Tabs value={value}
+    indicatorColor="primary"
+    textColor="primary"
+    onChange={handleChange}
+    aria-label="disabled tabs example"
+    className={classes.Tabs1}>
+          <Tab label="Stream"/>
+          <Tab label="Classroom"/>
+          <Tab label="People"/>
+          </Tabs>
+          </div>
             <Grid container>
 
             <Grid container xs={3}>
