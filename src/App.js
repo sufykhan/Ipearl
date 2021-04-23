@@ -1,20 +1,24 @@
-import React from "react";
-import { Route } from "react-router-dom";
-import Homescreen from "./Screens/Homescreen";
-import ClassScreen from "./Screens/ClassScreen";
-const App = () => {
+import Navbar from "./Components/Navbar"
+import {Route,Switch,useLocation} from "react-router-dom"
+import "./styles.css"
+import Home from "./Screens/Home"
+import Calendar from "./Screens/Calendar"
+import Course from "./Screens/Course"
+
+function App() {
+  const location=useLocation()
+  const navbarHome=["/","/calendar","/settings","/archivedClasses"]
+  
   return (
     <>
-     
-          <Route path="/dummy" exact>
-            <Homescreen />
-          </Route>
-          <Route path="/" exact>
-            <ClassScreen />
-          </Route>
-
+      {navbarHome.includes(location.pathname) &&<Navbar/>}
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/calendar" component={Calendar}/>
+        <Route path="/course_id/:course_id" component={Course} />
+      </Switch>
     </>
   );
-};
+}
 
 export default App;
